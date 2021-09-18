@@ -34,8 +34,19 @@ function displayTemperature(response) {
     iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "c4cd19b1bf4fcc9bdffc7f2ac1741ca9";
-let city = "Brisbane";
-let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city){
+    let apiKey = "c4cd19b1bf4fcc9bdffc7f2ac1741ca9";
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl). then (displayTemperature);
+}
 
-axios.get(apiUrl). then (displayTemperature);
+
+function handleSubmit(event){
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    console.log(cityInputElement.value);
+    search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
