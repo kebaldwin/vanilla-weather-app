@@ -7,6 +7,7 @@
     <title>Weather App</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <link rel="stylesheet" href="src/style.css" />
 </head>
 <body>
@@ -14,16 +15,12 @@
         <div class = "weather-app-wrapper">
             <div class="weather-app">
                 <div class ="overview">
-                 <h1>
-                    New York
-                </h1>
+                 <h1 id="city"></h1>
                 <ul>
-                    <li class="Day-Time">
+                    <li class="Day-Time" id = "date">
                         Friday 05:00
                     </li>
-                    <li class="wxdescription">
-                        Sunny
-                    </li>
+                    <li id="description">Sunny</li>
                 </ul>
                 </div>
                 <div class="row">
@@ -35,9 +32,7 @@
                                 class="float-left"
                             />
                             <span class ="float-left">
-                                <strong>
-                                12
-                                </strong> 
+                                <strong id="temperature"></strong> 
                                 <span class = "units">
                                 °C | <a href ="h">°F</a>
                                 </span>
@@ -47,13 +42,10 @@
                     <div class="col-6">
                     <ul>
                         <li>
-                           Precipitation: 0% 
+                            Humidity: <span id="humidity"></span>%
                         </li>
                         <li>
-                            Humidity: 73%
-                        </li>
-                        <li>
-                            Wind: 2km/h
+                            Wind: <span id="wind"></span>km/h
                         </li>
                     </ul>
                 </div>
