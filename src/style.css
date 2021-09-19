@@ -75,3 +75,10 @@ li::first-letter {
   height: 35px;
   margin-left: -10px;
 }
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  margin-top: 40px;
+}
